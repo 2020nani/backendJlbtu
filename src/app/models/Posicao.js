@@ -1,11 +1,12 @@
 import Sequelize, { Model } from 'sequelize';
 
-class File extends Model {
+class Posicao extends Model {
   
     static init(sequelize) {
       super.init({
-        name:Sequelize.ARRAY(Sequelize.STRING),
-        path:Sequelize.ARRAY(Sequelize.STRING),
+        end:Sequelize.STRING,
+        latitude:Sequelize.DECIMAL,
+        longitude:Sequelize.DECIMAL,
         
         //url: {
         //  type: Sequelize.VIRTUAL,
@@ -21,6 +22,12 @@ class File extends Model {
 
     return this;
   }
+  user() {
+    return this.belongsTo('App/models/User')
+  }
+  images(){
+    return this.hasMany('App/models/User')
+  }
 }
 
-export default File;
+export default Posicao;

@@ -21,9 +21,7 @@ static init(sequelize) {
 
     return this;
 }
-static associate(models) {
-  this.belongsTo(models.File, { foreignKey: 'imagem_id' });
-}
+
 
 checkPassword(password) {
   return bcrypt.compare(password, this.password_hash);
